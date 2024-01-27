@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
+    <title>Valentine's Day Proposal</title>
+    <style>
+        #confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff4961; /* Dark pink confetti color */
+            border-radius: 50%;
+            transform-origin: center;
+            animation: confetti-fall linear infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        #sad-face-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+        }
+        #heart-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            width: 100%;
+            height: 100%;
+            z-index: 900; /* Ensure the hearts appear behind other elements */
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff4961; /* Heart color */
+            transform: rotate(-45deg);
+            animation: floatAnimation linear infinite;
+        }
+
+        @keyframes floatAnimation {
+            0% {
+                transform: translateY(0) rotate(-45deg);
+            }
+            50% {
+                transform: translateY(-100px) rotate(-45deg);
+            }
+            100% {
+                transform: translateY(0) rotate(-45deg);
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <form action="https://formspree.io/f/mdoqapao" method="POST">
+        <label for="herEmail">Your Email:</label>
+        <input type="email" id="herEmail" name="herEmail" required>
+    </form>
+    <div id="countdown">
+        <h2>Countdown to Valentine's Day</h2>
+        <div id="countdown-timer">
+            <span id="days">00</span>
+            <span>:</span>
+            <span id="hours">00</span>
+            <span>:</span>
+            <span id="minutes">00</span>
+            <span>:</span>
+            <span id="seconds">00</span>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Hello, my love! 💖</h1>
+        <div id="questionContainer">
+            <p class="question" id="introQuestion">I have a special question for you...</p>
+            <p class="question hidden" id="proposalQuestion">Will you be my Valentine's?</p>
+            <div id="sad-face-container"></div>
+        </div>
+        <button id="proposalButton">Click me</button>
+        <div id="responseContainer" class="hidden">
+            <p id="responseText"></p>
+            <div id="choiceButtons">
+                <button class="choice" id="yesButton">Yes</button>
+                <button class="choice" id="noButton">No</button>
+            </div>
+        </div>
+        <div id="confetti-container"></div>
+    </div>
+    <div class="heart-container" id="heart-container"></div>
+    <script src="app.js"></script>
+</body>
+</html>
